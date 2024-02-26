@@ -1,0 +1,50 @@
+{
+    "layer": "bottom",
+    "position": "top",
+    "modules-left": ["clock"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["battery"],
+    "fixed-center": true,
+    "passthrough": true,
+    "spacing": 0,
+
+    "clock": {
+        "format": "{:%H:%M} "
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "format": "{icon}",
+        "persistent-workspaces": {
+            "*": 5,
+        },
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        },
+    },
+
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-icons": ["", "", "", "", ""]
+    },
+}

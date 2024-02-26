@@ -1,0 +1,18 @@
+backend = "pulseaudio"
+bitrate = 320
+notify = true
+library_tabs = ["tracks", "browse"]
+normalisation_pregain_db = 0.0
+use_nerdfont = true
+cover_enabled = true
+cover_max_scale = 1.0
+hide_display_names = true
+
+[keybindings]
+"d" = "noop"
+"q" = "noop"
+"Shift+q" = "quit"
+"g" = "move top"
+"G" = "move bottom"
+"Ctrl+u" = "move up 20"
+"Ctrl+d" = "move down 20"

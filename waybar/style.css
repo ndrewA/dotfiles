@@ -1,0 +1,55 @@
+@import '/home/andrew/.cache/wal/colors-waybar.css';
+
+* {
+    font-size: 20px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    background-color: transparent;
+}
+
+#clock, #battery, #workspaces {
+    background-color: alpha(@color4, 0.5);
+    background-color: alpha(@background, 0.5);
+    padding-left: 1.0rem;
+    padding-right: 1.0rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+
+    border-bottom: 3px solid @foreground;
+    border-top: 3px solid @foreground;
+}
+
+#clock {
+    color: @color7;
+    border: 3px solid @foreground;
+    border-radius: 100px 10px 100px 10px;
+    margin-left: 30rem;
+    padding: 0px 40px 0px 40px;
+}
+
+#battery {
+    color: @color7;
+    border: 3px solid @foreground;
+    border-radius: 10px 100px 10px 100px;
+    margin-right: 30rem;
+    padding: 0px 40px 0px 40px;
+}
+
+#workspaces {
+    border-radius: 70px 70px 10px 10px;
+    border: 3px solid @foreground;
+    padding-left: 2.0rem;
+    padding-right: 2.0rem;
+}
+
+#workspaces button {
+    color: @color7;
+    padding-left: 1.0rem;
+    padding-right: 1.0rem;
+}
+
+#workspaces button.active {
+    color: @background;
+    background-color: @color7;
+    border-radius: 0px;
+}

@@ -1,0 +1,57 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+* {
+    cursor: text;
+    vertical-align: 0.5;
+    border-radius: 5;
+}
+
+window {
+    border-radius: 10;
+    width: 25%;
+    padding: 0.4ch;
+}
+
+inputbar {
+    margin: 0.0ch;
+    children: [ textbox-prompt, entry ];
+}
+
+textbox-prompt {
+    padding: 0 0 0 5;
+    vertical-align: 0.5;
+    expand: false;
+    content: ">";
+    text-color: @normal-foreground;
+}
+
+entry {
+    vertical-align: 0.5;
+    padding: 0px 0px 0px 5px;
+    border-radius: 0;
+    placeholder: "Search...";
+}
+
+listview {
+    lines: 6;
+    margin: 0;
+    require-input: true;
+    scrollbar: false;
+}
+
+element {
+    orientation: horizontal;
+    children: [ element-text ];
+}
+
+element-text {
+    highlight: bold underline;
+    vertical-align: 0.5;
+    padding: 0px 0px 0px 10px;
+}
+
+element.selected.normal {
+    background-color: @background;
+    border-color: @foreground;
+    border: 2;
+}
