@@ -8,7 +8,6 @@
 }
 
 #clock, #battery, #workspaces {
-    background-color: alpha(@color4, 0.5);
     background-color: alpha(@background, 0.5);
     padding-left: 1.0rem;
     padding-right: 1.0rem;

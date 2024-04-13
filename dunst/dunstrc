@@ -111,10 +111,10 @@ per_monitor_dpi = false
 
 
 [urgency_low]
-background = "#0A151696"
-foreground = "#b2b9ba"
-frame_color = "#b2b9ba"
-highlight = "#DB124B"
+background = "#0C0D1496"
+foreground = "#e4e0e2"
+frame_color = "#e4e0e2"
+highlight = "#646B8B"
 timeout = 5
 # Icon for notifications with low urgency, uncomment to enable
 #default_icon = /path/to/icon
