@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the default wallpapers directory and the file to track the last wallpapers used.
-WALLPAPERS_DIR=$(readlink -f ~/dotfiles/Wallpapers)
+WALLPAPERS_DIR=~/dotfiles/Wallpapers
 LAST_WALLPAPER_FILE="$HOME/dotfiles/scripts/swww/.last_wallpapers_used"
 
 # Function to update the wallpaper queue in the file
