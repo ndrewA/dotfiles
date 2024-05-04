@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the default wallpapers directory and the file to track the last wallpapers used.
-WALLPAPERS_DIR=~/Pictures/Wallpapers
+WALLPAPERS_DIR=$(readlink -f ~/dotfiles/Wallpapers)
 LAST_WALLPAPER_FILE="$HOME/dotfiles/scripts/swww/.last_wallpapers_used"
 
 # Function to update the wallpaper queue in the file
@@ -9,10 +9,15 @@ update_wallpaper_queue() {
     local new_wallpaper=$1
     echo "Adding new wallpaper to the queue: $new_wallpaper"
     if [ -f "$LAST_WALLPAPER_FILE" ]; then
-        # Read the last three wallpapers, add the new one to the front, and keep only the last three entries
+        # Count the number of wallpapers in the directory and calculate half of that number
+        local total_wallpapers=$(find "$WALLPAPERS_DIR" -type f | wc -l)
+        local queue_limit=$((total_wallpapers / 2))
+
+        # Read the last wallpapers, add the new one to the front, and keep only up to the queue limit entries
         wallpapers=$(cat "$LAST_WALLPAPER_FILE")
-        echo "Current queue before adding new: $wallpapers"
-        echo -e "$new_wallpaper\n$wallpapers" | head -n 3 > "$LAST_WALLPAPER_FILE"
+        echo "Current queue before adding new:"
+        echo "$wallpapers"
+        echo -e "$new_wallpaper\n$wallpapers" | head -n "$queue_limit" > "$LAST_WALLPAPER_FILE"
     else
         echo "$new_wallpaper" > "$LAST_WALLPAPER_FILE"
     fi
@@ -45,7 +50,7 @@ set_wallpaper() {
     RANDOM_Y=$(awk -v min=0 -v max=1 'BEGIN{srand(); print min+rand()*(max-min)}')
 
     # Apply the wallpaper with a random transition position
-    swww img "$1" --transition-pos $RANDOM_X,$RANDOM_Y --transition-fps 90 --transition-type grow
+    swww img "$1" --transition-pos $RANDOM_X,$RANDOM_Y --transition-fps 60 --transition-type grow
 
     wal -i "$1"  # Generate and apply theme with Pywal
     /home/andrew/.config/dunst/apply_pywall_theme.sh  # Apply Pywal theme to Dunst
