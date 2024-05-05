@@ -1,45 +1,21 @@
 #!/bin/bash
 
-# Define the default wallpapers directory and the file to track the last wallpapers used.
-WALLPAPERS_DIR=~/dotfiles/Wallpapers
-LAST_WALLPAPER_FILE="$HOME/dotfiles/scripts/swww/.last_wallpapers_used"
+# Define path to the lock file
+LOCK_FILE="/tmp/wallpaper_change.lock"
 
-# Function to update the wallpaper queue in the file
-update_wallpaper_queue() {
-    local new_wallpaper=$1
-    echo "Adding new wallpaper to the queue: $new_wallpaper"
-    if [ -f "$LAST_WALLPAPER_FILE" ]; then
-        # Count the number of wallpapers in the directory and calculate half of that number
-        local total_wallpapers=$(find "$WALLPAPERS_DIR" -type f | wc -l)
-        local queue_limit=$((total_wallpapers / 2))
-
-        # Read the last wallpapers, add the new one to the front, and keep only up to the queue limit entries
-        wallpapers=$(cat "$LAST_WALLPAPER_FILE")
-        echo "Current queue before adding new:"
-        echo "$wallpapers"
-        echo -e "$new_wallpaper\n$wallpapers" | head -n "$queue_limit" > "$LAST_WALLPAPER_FILE"
-    else
-        echo "$new_wallpaper" > "$LAST_WALLPAPER_FILE"
-    fi
-    echo "Updated wallpaper queue:"
-    cat "$LAST_WALLPAPER_FILE"
-}
-
-# Check if a specific wallpaper was provided as an argument.
-if [[ -n "$1" && -f "$1" ]]; then
-    SPECIFIC_WALLPAPER="$1"
+# Check if lock file exists
+if [ -f "$LOCK_FILE" ]; then
+    echo "Another instance is running. Exiting..."
+    exit 1
 else
-    if [ -f "$LAST_WALLPAPER_FILE" ]; then
-        # Avoid the last three used wallpapers
-        mapfile -t used_wallpapers < "$LAST_WALLPAPER_FILE"
-        exclude_patterns=$(printf "! -name %s " "${used_wallpapers[@]##*/}")
-        SPECIFIC_WALLPAPER=$(find "$WALLPAPERS_DIR" -type f $exclude_patterns | shuf -n 1)
-    fi
-    # If no valid new wallpaper found (or file doesn't exist), select any
-    if [[ -z "$SPECIFIC_WALLPAPER" || ! -f "$SPECIFIC_WALLPAPER" ]]; then
-        SPECIFIC_WALLPAPER=$(find "$WALLPAPERS_DIR" -type f | shuf -n 1)
-    fi
+    # Create a lock file
+    touch "$LOCK_FILE"
+    # Ensure the lock file is removed on exit and also on interruption or error
+    trap 'rm -f "$LOCK_FILE"; exit' INT TERM EXIT
 fi
+
+# File to store the shuffled wallpapers.
+SHUFFLED_WALLPAPER_FILE="$HOME/dotfiles/scripts/swww/.shuffled_wallpapers"
 
 # Function to set wallpaper, update the system theme, and apply a random transition position.
 set_wallpaper() {
@@ -58,7 +34,18 @@ set_wallpaper() {
     waybar &
 }
 
-# Apply the wallpaper.
-set_wallpaper "$SPECIFIC_WALLPAPER"
+# Cycle the wallpaper
+if [ -f "$SHUFFLED_WALLPAPER_FILE" ]; then
+    # Read the first wallpaper and store all wallpapers into an array
+    mapfile -t wallpapers < "$SHUFFLED_WALLPAPER_FILE"
 
-exit 0
+    # Set the first wallpaper in the list as the current wallpaper
+    set_wallpaper "${wallpapers[0]}"
+
+    # Remove the first wallpaper from the list and append it to the end
+    sed -i '1d' "$SHUFFLED_WALLPAPER_FILE"
+    echo "${wallpapers[0]}" >> "$SHUFFLED_WALLPAPER_FILE"
+else
+    echo "Error: Wallpaper list file does not exist."
+    exit 1  # The lock file will be removed by the trap
+fi
