@@ -23,13 +23,15 @@ set_wallpaper() {
     RANDOM_X=$(awk -v min=0 -v max=1 'BEGIN{srand(); print min+rand()*(max-min)}')
     RANDOM_Y=$(awk -v min=0 -v max=1 'BEGIN{srand(); print min+rand()*(max-min)}')
 
-    wal -i "$1"  # Generate and apply theme with Pywal
+    wal -i "$1" --backend colorz --saturate 0.6 # Generate and apply theme with Pywal
+
+    pywalfox update &
     /home/andrew/.config/dunst/apply_pywall_theme.sh  # Apply Pywal theme to Dunst
     killall waybar
     waybar &
 
     # Apply the wallpaper with a random transition position
-    swww img "$1" --transition-pos $RANDOM_X,$RANDOM_Y --transition-fps 60 --transition-type grow
+    swww img "$1" --transition-pos $RANDOM_X,$RANDOM_Y --transition-type grow
 }
 
 # Cycle the wallpaper
