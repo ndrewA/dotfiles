@@ -1,6 +1,6 @@
 configuration {
 modes: "window,drun,run,ssh";
-font: "Bold Mono NerdFont 25";
+font: "JetBrainsMono Nerd Font 20";
 location: 0;
 fixed-num-lines: false;
 show-icons: false;

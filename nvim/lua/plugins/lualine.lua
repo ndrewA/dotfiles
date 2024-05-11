@@ -1,5 +1,6 @@
 return {
-   "nvim-lualine/lualine.nvim",
+    "nvim-lualine/lualine.nvim",
+    after = "lushwal",
     config = function()
         require('lualine').setup {
             options = {

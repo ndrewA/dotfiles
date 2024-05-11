@@ -1,57 +1,98 @@
-@import "~/.cache/wal/colors-rofi-dark.rasi"
+@import "~/.cache/wal/rofi-template.rasi"
 
 * {
     cursor: text;
     vertical-align: 0.5;
-    border-radius: 5;
+    background-color: transparent;
+    text-color: @foreground;
+    location: center;
 }
 
 window {
-    border-radius: 10;
-    width: 25%;
-    padding: 0.4ch;
+    width: 20%;
+    background-color: transparent;
+
+    padding: 0;
+
+    border: 0;
 }
 
 inputbar {
-    margin: 0.0ch;
+    background-color: @background-transparent;
+
     children: [ textbox-prompt, entry ];
+    padding: 10 13;
+    margin: 0 0 0 105;
+
+    border-radius: 5 1000 5 1000;
+    border-color: @foreground;
+    border: 3;
 }
 
 textbox-prompt {
-    padding: 0 0 0 5;
-    vertical-align: 0.5;
+    padding: 0 20 0 0;
     expand: false;
-    content: ">";
-    text-color: @normal-foreground;
+    content: "";
 }
 
 entry {
-    vertical-align: 0.5;
-    padding: 0px 0px 0px 5px;
-    border-radius: 0;
     placeholder: "Search...";
+    placeholder-color: @foreground-transparent;
 }
 
 listview {
-    lines: 6;
-    margin: 0;
+    background-color: transparent;
     require-input: true;
-    scrollbar: false;
-}
+    lines: 4;
 
-element {
-    orientation: horizontal;
-    children: [ element-text ];
+    scrollbar: false;
+
+    spacing: 0;
+    margin: 0 75 0 0;
+    border: 3;
+    border-radius: 60 2 60 15;
+    border-color: @background;
 }
 
 element-text {
-    highlight: bold underline;
-    vertical-align: 0.5;
-    padding: 0px 0px 0px 10px;
+    padding: 5 30;
+    highlight: None;
+}
+
+element.normal.normal {
+    background-color: @background-transparent;
+}
+
+element.normal.urgent {
+    background-color: @background-transparent;
+}
+
+element.normal.active {
+    background-color: @background-transparent;
 }
 
 element.selected.normal {
-    background-color: @background;
-    border-color: @foreground;
-    border: 2;
+    background-color: @foreground;
+    text-color: @background;
+}
+
+element.selected.urgent {
+    background-color: @background-transparent;
+    border-radius: 100;
+}
+
+element.selected.active {
+    background-color: @background-transparent;
+}
+
+element.alternate.normal {
+    background-color: @background-transparent;
+}
+
+element.alternate.urgent {
+    background-color: @background-transparent;
+}
+
+element.alternate.active {
+    background-color: @background-transparent;
 }
