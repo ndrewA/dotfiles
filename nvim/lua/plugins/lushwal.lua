@@ -10,5 +10,10 @@ return {
 
     config = function ()
         vim.cmd("colorscheme lushwal")
+        vim.g.lushwal_configuration = {
+            addons = {
+                lualine = true,
+            }
+        }
     end
 }

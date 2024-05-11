@@ -14,7 +14,7 @@ drun-match-fields: "all";
 /*	drun-show-actions: false;*/
 drun-display-format: "{name}";
 /*	drun-url-launcher: "xdg-open";*/
-disable-history: true;
+disable-history: false;
 /*	ignored-prefixes: "";*/
 /*	sort: false;*/
 /*	sorting-method: "normal";*/

@@ -1,6 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
-    after = "lushwal",
+    dependecies = "lushwal",
+    lazy = false,
     config = function()
         require('lualine').setup {
             options = {

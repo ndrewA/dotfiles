@@ -1,7 +1,7 @@
 return {
     "xiyaowong/transparent.nvim",
 
-    after = "lushwal",
+    dependecies = "lushwal",
     lazy = false,
     cmd = "TransparentEnable",
 
