@@ -111,19 +111,19 @@ per_monitor_dpi = false
 
 
 [urgency_low]
-background = "#22080296"
-foreground = "#c7c1bf"
-frame_color = "#c7c1bf"
-highlight = "#d1b177"
+background = "#00010296"
+foreground = "#b3dbc1"
+frame_color = "#b3dbc1"
+highlight = "#00dd91"
 timeout = 5
 # Icon for notifications with low urgency, uncomment to enable
 #default_icon = /path/to/icon
 
 [urgency_normal]
-background = "#22080296"
-foreground = "#c7c1bf"
-frame_color = "#c7c1bf"
-highlight = "#d1b177"
+background = "#00010296"
+foreground = "#b3dbc1"
+frame_color = "#b3dbc1"
+highlight = "#00dd91"
 timeout = 5
 # Icon for notifications with low urgency, uncomment to enable
 #default_icon = /path/to/icon

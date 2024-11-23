@@ -1,16 +1,18 @@
-backend = "pulseaudio"
-bitrate = 320
-notify = true
-library_tabs = ["tracks", "browse"]
-normalisation_pregain_db = 0.0
-use_nerdfont = true
-hide_display_names = true
-
-[keybindings]
-"d" = "noop"
-"q" = "noop"
-"Shift+q" = "quit"
-"g" = "move top"
-"G" = "move bottom"
-"Ctrl+u" = "move up 20"
-"Ctrl+d" = "move down 20"
+[theme]
+background = "black"
+primary = "light white"
+secondary = "light black"
+title = "green"
+playing = "green"
+playing_selected = "light green"
+playing_bg = "black"
+highlight = "light white"
+highlight_bg = "#484848"
+error = "light white"
+error_bg = "red"
+statusbar = "black"
+statusbar_progress = "green"
+statusbar_bg = "green"
+cmdline = "light white"
+cmdline_bg = "black"
+search_match = "light red"

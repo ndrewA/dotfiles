@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 
 # Define path to the lock file
 LOCK_FILE="/tmp/wallpaper_change.lock"
@@ -23,7 +23,7 @@ set_wallpaper() {
     RANDOM_X=$(awk -v min=0 -v max=1 'BEGIN{srand(); print min+rand()*(max-min)}')
     RANDOM_Y=$(awk -v min=0 -v max=1 'BEGIN{srand(); print min+rand()*(max-min)}')
 
-    wal -i "$1" --backend colorz --saturate 0.5 # Generate and apply theme with Pywal
+    wal -i "$1" --saturate 1 # Generate and apply theme with Py
 
     /home/andrew/.config/dunst/apply_pywall_theme.sh  # Apply Pywal theme to Dunst
     killall waybar
