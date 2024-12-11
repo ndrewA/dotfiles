@@ -37,7 +37,7 @@ keymap("n", "<A-j>", ":m .+1<CR>==", opts)
 keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 
 -- dont yank when pasting
--- keymap('v', 'p', '"_dP', opts)
+keymap('v', 'p', '"_dP', opts)
 
 -- normal mode in terminal mode
 keymap('t', '<Esc>', '<C-\\><C-n>', opts)

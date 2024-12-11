@@ -15,7 +15,7 @@ return {
                 clangdFileStatus = true,
                 clangTidy = true,
                 clangTidyChecks = "-*,modernize-*",
-                fallbackFlags = { "-std=c++20" }
+                fallbackFlags = { "-std=c++23" }
             },
         }
 
