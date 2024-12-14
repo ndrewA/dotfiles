@@ -5,8 +5,8 @@
 monitor = 1
 follow = keyboard
 enable_posix_regex = true
-width = 300
-height = 300
+# width = 300
+# height = 300
 notification_limit = 20
 origin = top-right
 offset = 20x20
@@ -111,19 +111,19 @@ per_monitor_dpi = false
 
 
 [urgency_low]
-background = "#1a151296"
-foreground = "#eceae5"
-frame_color = "#eceae5"
-highlight = "#71ff71"
+background = "#080A0D96"
+foreground = "#7ce7f4"
+frame_color = "#7ce7f4"
+highlight = "#00a1e0"
 timeout = 5
 # Icon for notifications with low urgency, uncomment to enable
 #default_icon = /path/to/icon
 
 [urgency_normal]
-background = "#1a151296"
-foreground = "#eceae5"
-frame_color = "#eceae5"
-highlight = "#71ff71"
+background = "#080A0D96"
+foreground = "#7ce7f4"
+frame_color = "#7ce7f4"
+highlight = "#00a1e0"
 timeout = 5
 # Icon for notifications with low urgency, uncomment to enable
 #default_icon = /path/to/icon

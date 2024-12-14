@@ -5,8 +5,8 @@
     monitor = 1
     follow = keyboard
     enable_posix_regex = true
-    width = 300
-    height = 300
+    # width = 300
+    # height = 300
     notification_limit = 20
     origin = top-right
     offset = 20x20
