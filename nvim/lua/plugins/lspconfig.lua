@@ -4,6 +4,9 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 
     config = function()
+        require'lspconfig'.cmake.setup{}
+        require'lspconfig'.glsl_analyzer.setup{}
+
         require'lspconfig'.clangd.setup{
             cmd = {
                 "clangd",

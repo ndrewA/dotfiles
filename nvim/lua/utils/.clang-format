@@ -12,7 +12,7 @@ AllowShortIfStatementsOnASingleLine: Never
 AllowShortLambdasOnASingleLine: All
 AlwaysBreakBeforeMultilineStrings: true
 AlwaysBreakTemplateDeclarations: true
-BinPackArguments: false
+BinPackArguments: true
 BinPackParameters: true
 BitFieldColonSpacing: Both
 BreakBeforeBraces: Custom
@@ -59,7 +59,7 @@ IndentRequiresClause: false
 IndentWidth: 4
 IndentWrappedFunctionNames: true
 InsertNewlineAtEOF: true
-InsertTrailingCommas: Wrapped
+InsertTrailingCommas: None
 KeepEmptyLinesAtTheStartOfBlocks: true
 LambdaBodyIndentation: Signature
 Language: Cpp
