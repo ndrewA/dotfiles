@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Get the current hour (24-hour format)
-CURRENT_HOUR=$(date +'%H')
+# Get the current time in HHMM format
+CURRENT_TIME=$(date +'%H%M')
 
-# Check if the current hour is 22 (10 PM) or later, or if it's before 6 AM
-if [ "$CURRENT_HOUR" -ge 22 ] || [ "$CURRENT_HOUR" -lt 6 ]; then
-    # Power off the computer
-    # poweroff
+# If the current time is 21:30 (9:30 PM) or later, OR before 06:00 (6 AM), then power off.
+if (( 10#$CURRENT_TIME >= 2130 || 10#$CURRENT_TIME < 600 )); then
+    poweroff
 fi
+
