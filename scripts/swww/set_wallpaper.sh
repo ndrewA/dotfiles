@@ -25,7 +25,8 @@ set_wallpaper() {
 
     wal -i "$1" --saturate 1 # Generate and apply theme with Py
 
-    /home/andrew/.config/dunst/apply_pywall_theme.sh  # Apply Pywal theme to Dunst
+    cp ~/.cache/wal/dunstrc ~/.config/dunst/dunstrc
+    systemctl --user restart dunst
     killall waybar
     waybar &
 

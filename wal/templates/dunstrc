@@ -111,17 +111,17 @@
 
 
 [urgency_low]
-    background = "#0D111096"
-    foreground = "#d8e6ef"
-    frame_color = "#d8e6ef"
-    highlight = "#0e81fe"
+    background = "{color0}96"
+    foreground = "{color15}"
+    frame_color = "{color15}"
+    highlight = "{color4}"
     timeout = 5
 
 [urgency_normal]
-    background = "#0D111096"
-    foreground = "#d8e6ef"
-    frame_color = "#d8e6ef"
-    highlight = "#0e81fe"
+    background = "{color0}96"
+    foreground = "{color15}"
+    frame_color = "{color15}"
+    highlight = "{color4}"
     timeout = 5
 
 [urgency_critical]

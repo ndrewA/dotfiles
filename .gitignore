@@ -8,6 +8,9 @@ scripts/swww/.shuffled_wallpapers
 nvim/colors/lushwal.vim
 nvim/lua/lualine/themes/lushwal.lua
 
+# dunst generated config
+dunst/dunstrc
+
 # general junk
 *.swp
 *.swo
