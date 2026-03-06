@@ -1,2 +1,15 @@
-dotfiles/ncspot/userstate.cbor
-dotfiles/scripts/swww/.shuffled_wallpapers
+# ncspot runtime state
+ncspot/userstate.cbor
+
+# swww shuffled wallpaper list (generated at runtime)
+scripts/swww/.shuffled_wallpapers
+
+# pywal-generated theme files
+nvim/colors/lushwal.vim
+nvim/lua/lualine/themes/lushwal.lua
+
+# general junk
+*.swp
+*.swo
+*.bak
+*~
