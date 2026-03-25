@@ -15,7 +15,7 @@ else
 fi
 
 # File to store the shuffled wallpapers.
-SHUFFLED_WALLPAPER_FILE="$HOME/dotfiles/scripts/swww/.shuffled_wallpapers"
+SHUFFLED_WALLPAPER_FILE="$HOME/dotfiles/scripts/awww/.shuffled_wallpapers"
 
 # Function to set wallpaper, update the system theme, and apply a random transition position.
 set_wallpaper() {
@@ -31,7 +31,7 @@ set_wallpaper() {
     waybar &
 
     # Apply the wallpaper with a random transition position
-    swww img "$1" --transition-pos $RANDOM_X,$RANDOM_Y --transition-type grow
+    awww img "$1" --transition-pos $RANDOM_X,$RANDOM_Y --transition-type grow
 }
 
 # Cycle the wallpaper
